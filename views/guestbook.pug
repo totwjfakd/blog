@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  a(class="create-new-guestbook" href="/guestbook/write") 글쓰기
+  hr
+  
+  -for(var i = board.length-1; i >=0 ; i--) {
+
+    div
+      
+      h1 #{i+1} - 제목 : #{board[i].title}
+        - var url = "/guestbook/"+board[i]._id;
+        a(href=url class="btn btn-primary btn-sm" style="float:right") 삭제
+
+      p 작성자 : #{board[i].author}
+      hr
+      p #{board[i].contents}
+      hr
+
+        
+      
+  -}

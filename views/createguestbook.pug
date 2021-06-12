@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+
+  form(action="/guestbook/write" method="post")
+      label(for=title) 제목:
+      input(class="form-control" type="text" name="title")
+      br
+      label(for="comment") 내용:
+      textarea(class="form-control" rows="5" name="contents")
+      br
+      label(for=usr) 작성자:
+      input(class="form-control" type="text" name="author")
+      br
+      input(type="submit" value="확인" class="btn btn-primary btn-sm")

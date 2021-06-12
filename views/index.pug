@@ -1,0 +1,47 @@
+extends layout
+
+
+block content
+
+  input(class="form-control" id="post_input" type="text" placeholder="Search..")
+  br
+  a(href='main/postwrite' class="btn btn-primary btn-sm") 글 업로드
+
+  ul(id = "post_list")
+    
+    - var num = 0;
+    - posts.reverse();
+    -console.log(posts);
+    each post in posts
+      
+      -var postTitle = post.slice(11, -3);
+      -var postDay = post.slice(0, 10);
+
+      -var year = postDay.slice(0,4);
+      -var month = postDay.slice(5,7);
+      -var day = postDay.slice(8,10);
+
+      -var url = '/main/'+post;
+      div(class="post-preview")
+        a(href=url)
+            h2(class="post-title") #{postTitle}
+        p(class="post-meta")
+          a #{year}년 #{month}월 #{day}일
+
+        -num += 1
+
+        hr
+          
+
+
+  script.
+    $(document).ready(function(){
+      $("#post_input").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#post_list div").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+
+

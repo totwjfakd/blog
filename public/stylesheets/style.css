@@ -1,0 +1,58 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+}
+
+a {
+  color: #00B7FF;
+}
+footer {
+  padding : 30px;
+}
+.jumbotron {
+  background-image: "/public/images/image1.jpg";
+}
+.siderbarAndContent {
+  padding : 20px 50px 20px 50px;
+}
+.profile-img {
+  border-radius: 50%;
+  width:80px;
+  height:80px;
+  display: block;
+  margin: 0px auto;
+}
+
+#profile-text-title {
+  font-weight:bold
+}
+
+ul {
+  padding : 0px
+}
+#go_home{
+  text-decoration:none;
+  color: #212529;
+}
+.post-preview > a {
+  color: #212529;
+}
+.post-preview > a:focus, .post-preview > a:hover {
+  text-decoration: none;
+  color: #0085A1;
+}
+.post-preview > a > .post-title {
+  font-size: 1.875rem;
+  margin-top: 1.875rem;
+  margin-bottom: 0.625rem;
+}
+
+.blog-title {
+  padding : 10px 0px 0px 40px;
+  font-size: 2em;
+  font-weight:bold;
+
+}
+.create-new-guestbook{
+  text-decoration: none;
+}
