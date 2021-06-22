@@ -47,12 +47,15 @@ ul {
   margin-bottom: 0.625rem;
 }
 
-.blog-title {
-  padding : 10px 0px 0px 40px;
+#go_home {
+
   font-size: 2em;
   font-weight:bold;
 
 }
 .create-new-guestbook{
   text-decoration: none;
+}
+.bottom-text {
+  font-size: .8em;
 }
