@@ -17,41 +17,18 @@ html
         .container-fluid
           .blog-top
             nav(class="navbar navbar-light bg-wihte static-top" style="margin:0px 0px 0px 20px")
-              <a class="navbar-brand" id="go_home" href="main">개발 BLOG</a>
+              <a class="navbar-brand" id="go_home" href="/main">개발 BLOG</a>
               div(class="navbar-auth" style="margin:0px 20px 0px 0px")
-                <a class="btn btn-primary" id="go_login" href="/auth/login" style="margin:10px">Login</a>
+                <a class="btn btn-primary" id="go_login" href="/auth/Login" style="margin:10px">Login</a>
                 <a id="go_signup" href="/auth/signup" style="text-decoration: none">SignUp</a>
           hr(style="margin:0px 0px 16px 0px")
           
-      
-      div(class="siderbarAndContent")
         .container-fluid
           .row
-            .col-sm-2
-              block sider-left
-                div(class="profile")
-                  img(src="/images/profile.jpg" class="profile-img" alt="Avatar")
-                  br
-                  div(class="profile-text")
-                    h6(id="profile-text-title") 개발자가 되고싶은 대학생
-                    p 대구가톨릭대학교 20119025 박한백
-                    br
-
-
-
-            .col-sm-8
-              block content
-
-            .col-sm-2
-              block sider-right
-                div(class="panel panel-info")
-                  ul.list-group
-                    li.list-group-item
-                      a(href='/main') HOME
-                    li.list-group-item
-                      a(href='/aboutme') About me
-                    li.list-group-item
-                      a(href='/guestbook') 방명록
+            .col-sm-1
+            .col-sm-10
+                block content
+            .col-sm-1
 
 
     footer
