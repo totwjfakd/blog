@@ -4,8 +4,10 @@ extends layout
 block content
 
   input(class="form-control" id="post_input" type="text" placeholder="Search..")
-  br
-  a(href='main/postwrite' class="btn btn-primary btn-sm" style="float:right") 글 업로드
+  
+  -if (isLogin)
+    br
+    a(href='main/postwrite' class="btn btn-primary btn-sm" style="float:right") 글 업로드
 
   ul(id = "post_list")
     

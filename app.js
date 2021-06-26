@@ -3,9 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var session = require('express-session');
+var FileStore = require('session-file-store')(session); // 1
 
 var app = express();
+
+app.use(session({  // 2
+  secret: 'keyboard cat',  // 암호화
+  resave: false,
+  saveUninitialized: true,
+  store: new FileStore()
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

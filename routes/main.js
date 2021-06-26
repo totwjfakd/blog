@@ -16,6 +16,7 @@ var upload = multer({ storage: storage })
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log(req.session); // session 정보
   fs.readdir(findForder, function(err, content) {
     if (err) {
       console.log(err);
@@ -23,7 +24,7 @@ router.get('/', function(req, res, next) {
     }
     if (content.length>=1) {
       
-      res.render('index', { title : 'Home', posts: content });
+      res.render('index', { title : 'Home', posts: content, isLogin : req.session.is_login, user_name : req.session.user_name });
     }
     else {
       console.log("No file")
@@ -33,6 +34,16 @@ router.get('/', function(req, res, next) {
   })
 
 });
+
+router.post('/', function(req, res) {
+  console.log("로그아웃 버튼");
+  req.session.destroy();
+  
+  res.redirect('/main');
+
+
+});
+
 
 router.get('/postwrite', function(req, res, next) {
   res.render('createpost', { title: '파일 업로드' });
