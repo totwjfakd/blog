@@ -39,7 +39,10 @@ router.post('/login', function(req, res) {
             });
             
         }
-        else console.log("로그인 실패");
+        else {
+            res.redirect('/main');
+
+        }
     });
 });
 

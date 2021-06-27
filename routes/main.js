@@ -36,12 +36,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res) {
-  console.log("로그아웃 버튼");
   req.session.destroy();
-  
   res.redirect('/main');
-
-
 });
 
 

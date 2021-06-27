@@ -8,6 +8,18 @@ var FileStore = require('session-file-store')(session); // 1
 
 var app = express();
 
+var mongoose = require('mongoose');
+var promise = mongoose.connect('mongodb://localhost/blog', {
+    useMongoClient: true
+});
+ 
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    // we're connected!
+    console.log('connected successfully');
+});
+
 app.use(session({  // 2
   secret: 'keyboard cat',  // 암호화
   resave: false,
@@ -32,17 +44,6 @@ app.use('/', routes);
 
 
 // mongodb setup
-var mongoose = require('mongoose');
-var promise = mongoose.connect('mongodb://localhost/blog', {
-    useMongoClient: true
-});
- 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    // we're connected!
-    console.log('connected successfully');
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

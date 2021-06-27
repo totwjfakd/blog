@@ -6,7 +6,7 @@ var Board = require('../models/board');
 
 router.get('/', function(req, res, next) {
   Board.find({}, function (err, board) {
-    res.render('guestbook', { title: '방명록', board : board });
+    res.render('guestbook', { title: '방명록', board : board, isLogin : req.session.is_login });
   });
 });
 /* Write board page */
