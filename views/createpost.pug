@@ -2,10 +2,15 @@ extends layout
 
 
 block content
-    h1=title
-    p 파일 이름 형식 : 년-월-일-파일이름.md
-    br
-    form(action='/main/postwrite' method="post" enctype="multipart/form-data")
-        input(type="file" class="form-control-file border", name='postFile')
+    -if (isLogin)
+        
+        h1=title
+        p 파일 이름 형식 : 년-월-일-파일이름.md
         br
-        input(type="submit" value="확인" class="btn btn-primary btn-sm")
+        form(action='/main/postwrite' method="post" enctype="multipart/form-data")
+            input(type="file" class="form-control-file border", name='postFile')
+            br
+            input(type="submit" value="확인" class="btn btn-primary btn-sm")
+    -else 
+        div(class="alert alert-danger")
+            <strong>권한이 없습니다.</strong> <a href="/auth/login" class="alert-link">로그인 해주세요</a>.

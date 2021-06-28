@@ -1,6 +1,12 @@
 extends authLayout
 
 block content
+    -if (!email_and_password_match) 
+        <div class="alert alert-danger">
+            <strong>로그인 실패!</strong> 이메일 혹은 비밀번호가 틀렸습니다.
+        </div>
+
+    
     <form action="/auth/login" class="was-validated" method="post">
         <div class="form-group">
             <label for="uname">Email:</label>

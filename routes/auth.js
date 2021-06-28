@@ -4,7 +4,7 @@ var User = require('../models/user');
 
 /* GET users listing. */
 router.get('/login', function(req, res, next) {
-  res.render('authLogin');
+  res.render('authLogin', {email_and_password_match : true}); //default 값은 true임
 });
 router.get('/signup', function(req, res, next) {
     res.render('authSignUp');
@@ -21,7 +21,7 @@ router.post('/signup', function(req, res) {
         if (err) console.log(err);
         else {
             console.log("회원가입 성공");
-            res.redirect('/auth/login');
+            res.render('authLogin', {email_and_password_match : true});
         }
     })
 });
@@ -40,7 +40,7 @@ router.post('/login', function(req, res) {
             
         }
         else {
-            res.redirect('/main');
+            res.render('authLogin', {email_and_password_match : false});
 
         }
     });

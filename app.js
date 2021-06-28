@@ -4,7 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
-var FileStore = require('session-file-store')(session); // 1
+//var FileStore = require('session-file-store')(session); // 1
+var MongoStore = require('connect-mongo');
 
 var app = express();
 
@@ -24,7 +25,11 @@ app.use(session({  // 2
   secret: 'keyboard cat',  // 암호화
   resave: false,
   saveUninitialized: true,
-  store: new FileStore()
+  //store: new FileStore()
+  store: MongoStore.create({
+    mongoUrl:'mongodb://localhost/blog',
+    ttl: 24 * 60 * 60
+  })
 }));
 
 // view engine setup

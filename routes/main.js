@@ -42,7 +42,7 @@ router.post('/', function(req, res) {
 
 
 router.get('/postwrite', function(req, res, next) {
-  res.render('createpost', { title: '파일 업로드' });
+  res.render('createpost', { title: '파일 업로드', isLogin : req.session.is_login});
 });
 
 router.post('/postwrite', upload.single('postFile'), function (req, res) {

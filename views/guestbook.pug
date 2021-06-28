@@ -10,7 +10,8 @@ block content
       
       h1 #{i+1} - 제목 : #{board[i].title}
         - var url = "/guestbook/"+board[i]._id;
-        a(href=url class="btn btn-primary btn-sm" style="float:right") 삭제
+        -if (isLogin)
+          a(href=url class="btn btn-primary btn-sm" style="float:right") 삭제
 
       p 작성자 : #{board[i].author}
       hr
