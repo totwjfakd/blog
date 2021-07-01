@@ -3,6 +3,7 @@ var router = express.Router();
 var fs = require('fs')
 var findForder = 'post'
 var multer = require('multer'); // express에 multer모듈 적용 (for 파일업로드)
+
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'post/') // cb 콜백함수를 통해 전송된 파일 저장 디렉토리 설정
@@ -23,7 +24,6 @@ router.get('/', function(req, res, next) {
       throw err;
     }
     if (content.length>=1) {
-      
       res.render('index', { title : 'Home', posts: content, isLogin : req.session.is_login, user_name : req.session.user_name });
     }
     else {
@@ -59,7 +59,7 @@ router.get('/:fileName', function(req, res) {
     var md = require('markdown-it')('commonmark');
     var mdData = md.render(data);
     console.log(typeof(mdData))
-    res.render('post', {postContent:mdData});
+    res.render('post', {postContent:mdData, isLogin : req.session.is_login});
   });
   
 });

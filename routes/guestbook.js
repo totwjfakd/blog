@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 });
 /* Write board page */
 router.get('/write', function(req, res, next) {
-  res.render('createguestbook', { title: '글쓰기' });
+  res.render('createguestbook', { title: '글쓰기' , isLogin : req.session.is_login});
 });
 
 /* board insert mongo */
